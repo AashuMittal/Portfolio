@@ -38,9 +38,7 @@ export default function About() {
   const containerVariant = {
     hidden: {},
     visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -50,23 +48,23 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="about" className="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariant}
-        className="flex flex-col md:flex-row items-start gap-24"
+        className="flex flex-col md:flex-row items-start gap-14 md:gap-24"
       >
         {/* Left Section */}
-          <motion.div variants={fadeUp} className="md:w-1/2">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <motion.div variants={fadeUp} className="md:w-1/2">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             About <span className="text-accentGreen">Me</span>
           </h2>
 
-          <div className="w-16 h-1 bg-accentGreen rounded-full mb-8"></div>
+          <div className="w-14 md:w-16 h-1 bg-accentGreen rounded-full mb-8"></div>
 
-          <p className="text-white/70 text-lg leading-relaxed">
+          <p className="text-white/70 text-base md:text-lg leading-relaxed">
             I’m <span className="text-white font-semibold">Aashu Mittal</span>, a
             passionate <span className="text-white font-semibold">Full-Stack Developer</span>{" "}
             with hands-on experience in building scalable and real-world web
@@ -81,11 +79,13 @@ export default function About() {
         </motion.div>
 
         {/* Right Section */}
-        <motion.div variants={fadeUp} className="md:w-1/2 flex flex-col md:flex-row gap-20">
-          
+        <motion.div
+          variants={fadeUp}
+          className="md:w-1/2 flex flex-col md:flex-row gap-14 md:gap-20"
+        >
           {/* Technical Skills */}
           <div className="flex-1">
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Technical <span className="text-accentGreen">Skills</span>
             </h2>
 
@@ -94,7 +94,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5 md:gap-6"
             >
               {technicalSkills.map((skill, idx) => {
                 const barColor = technicalColors[idx % technicalColors.length];
@@ -130,11 +130,11 @@ export default function About() {
 
           {/* Professional Skills */}
           <div className="flex-1">
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Professional <span className="text-accentGreen">Skills</span>
             </h2>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-6 md:gap-8">
               {professionalSkills.map((skill, idx) => {
                 const color = professionalColors[idx % professionalColors.length];
                 const circumference = 2 * Math.PI * 28;
@@ -149,8 +149,8 @@ export default function About() {
                     whileHover={{ scale: 1.08 }}
                     className="flex flex-col items-center"
                   >
-                    <div className="relative w-20 h-20">
-                      <svg className="w-20 h-20 transform -rotate-90">
+                    <div className="relative w-16 h-16 md:w-20 md:h-20">
+                      <svg className="w-full h-full transform -rotate-90">
                         <circle
                           strokeWidth="4"
                           stroke="currentColor"
@@ -180,12 +180,12 @@ export default function About() {
                         />
                       </svg>
 
-                      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm">
+                      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs md:text-sm">
                         {skill.percent}%
                       </div>
                     </div>
 
-                    <span className="mt-3 text-white/80 text-sm">
+                    <span className="mt-3 text-white/80 text-xs md:text-sm text-center">
                       {skill.name}
                     </span>
                   </motion.div>
@@ -193,7 +193,6 @@ export default function About() {
               })}
             </div>
           </div>
-
         </motion.div>
       </motion.div>
     </section>
